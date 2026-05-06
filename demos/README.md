@@ -10,6 +10,7 @@ Start here to explore Copilot’s core features. Learn how to use chat commands,
 **Key Skills:**  
 - Discover available Copilot commands  
 - Get project summaries and code explanations  
+- Plan and implement project improvements
 - Generate and review code completions  
 - Commit changes with Copilot
 
