@@ -22,10 +22,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   });
 
   const toggleTheme = () => {
-    const next: Theme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(next);
-    localStorage.setItem('theme', next);
-    applyTheme(next);
+    setTheme(prev => {
+      const next: Theme = prev === 'dark' ? 'light' : 'dark';
+      try {
+        localStorage.setItem('theme', next);
+      } catch {
+        // Ignore storage errors (quota exceeded, private mode, etc.)
+      }
+      applyTheme(next);
+      return next;
+    });
   };
 
   return (
